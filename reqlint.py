@@ -32,7 +32,6 @@ class ReqLint:
 
     @staticmethod
     def __is_request_call(node: Any) -> bool:
-        print(node)
         """Check if the AST node is a call to requests.get() or similar."""
         targetted_attributes = [
             "request",
