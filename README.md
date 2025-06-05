@@ -13,4 +13,3 @@ with open('your_file.py', 'r') as f:
 for issue in ReqLint(code).lint():
     print(issue)
 ```
-```
