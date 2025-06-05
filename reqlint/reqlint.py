@@ -24,6 +24,14 @@ class ReqLint:
     """
 
     @staticmethod
+    def __get_func_id(node: Any) -> str:
+        """Get the function identifier from an AST node."""
+        try:
+            return node.func.value.id
+        except AttributeError:
+            return ""
+
+    @staticmethod
     def __has_timeout_kwarg(kwargs: list[ast.keyword]) -> bool:
         for kwarg in kwargs:
             if "timeout=" in ast.unparse(kwarg):
@@ -46,7 +54,9 @@ class ReqLint:
         if not is_call:
             return False
 
-        is_requests_call = is_call and node.func.value.id == "requests"  # type: ignore
+        func_id = ReqLint.__get_func_id(node)
+
+        is_requests_call = is_call and func_id == "requests"  # type: ignore
         if not is_requests_call:
             return False
 
