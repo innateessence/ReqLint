@@ -46,13 +46,15 @@ class ReqLint:
         if not is_call:
             return False
 
-        is_requests_call = is_call and node.func.value.id == "requests"
+        is_requests_call = is_call and node.func.value.id == "requests"  # type: ignore
         if not is_requests_call:
             return False
+
         has_request_call_attr = False
         for attr in targetted_attributes:
-            if node.func.attr == attr:
+            if node.func.attr == attr:  # type: ignore
                 has_request_call_attr = True
+
         return is_call and is_requests_call and has_request_call_attr
 
     @classmethod
