@@ -10,6 +10,6 @@ from reqlint import ReqLint
 with open('your_file.py', 'r') as f:
     code = f.read()
 
-for issue in ReqLint(code).lint():
+for issue in ReqLint.lint(code):
     print(issue)
 ```
