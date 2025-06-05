@@ -12,10 +12,11 @@ class TestGood:
 
     def test(self):
         for f in self.get_good_files():
-            print("Testing file:", f)
+            print(f"{f}: ", end="")
             with open(f, "r") as file:
                 code = file.read()
             assert ReqLint.has_lint_errors(code) is False
+            print("Passed")
 
 
 class TestBad:
@@ -25,10 +26,11 @@ class TestBad:
 
     def test(self):
         for f in self.get_bad_files():
-            print("Testing file:", f)
+            print(f"{f}: ", end="")
             with open(f, "r") as file:
                 code = file.read()
             assert ReqLint.has_lint_errors(code) is True
+            print("Passed")
 
 
 if __name__ == "__main__":
