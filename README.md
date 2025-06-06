@@ -13,3 +13,7 @@ with open('your_file.py', 'r') as f:
 for issue in ReqLint.lint(code):
     print(issue)
 ```
+
+
+### Why?
+- (https://docs.python-requests.org/en/latest/user/quickstart/#timeouts)[Nearly all production code should use this parameter in nearly all requests. Failure to do so can cause your program to hang indefinitely]
