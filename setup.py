@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="py-reqlint",
-    version="1.1",
+    version="1.2",
     author="Innate Essence",
     packages=setuptools.find_packages(),
     license="MIT",

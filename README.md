@@ -4,6 +4,7 @@ Quickly lint your python files to detect if you're using requests library withou
 
 ## Quick Start
 * `pip install py-reqlint`
+* `python -m reqlint --help`
 ```python
 from reqlint import ReqLint
 

@@ -1,18 +1,5 @@
-import sys
 import ast
 from typing import Any, Iterable
-from glob import glob
-
-
-class FileUtils:
-
-    @staticmethod
-    def get_python_files(directory: str) -> Iterable[str]:
-        """
-        Generator to yield Python files from a directory.
-        """
-        for filepath in glob(f"{directory}/**/*.py", recursive=True):
-            yield filepath
 
 
 class ReqLint:
@@ -56,7 +43,7 @@ class ReqLint:
 
         func_id = ReqLint.__get_func_id(node)
 
-        is_requests_call = is_call and func_id == "requests"  # type: ignore
+        is_requests_call = is_call and func_id == "requests"
         if not is_requests_call:
             return False
 
@@ -86,12 +73,3 @@ class ReqLint:
         for node in cls.parse(code):
             line_number = node.lineno
             yield f"Line {line_number}: Request call without timeout parameter."
-
-
-if __name__ == "__main__":
-    target_dir = sys.argv[-1]
-    for filepath in FileUtils.get_python_files(target_dir):
-        with open(filepath, "r") as f:
-            code = f.read()
-            for error in ReqLint().lint(code):
-                print(f"{filepath}: {error}")
