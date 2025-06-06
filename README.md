@@ -16,4 +16,4 @@ for issue in ReqLint.lint(code):
 
 
 ### Why?
-- (https://docs.python-requests.org/en/latest/user/quickstart/#timeouts)[Nearly all production code should use this parameter in nearly all requests. Failure to do so can cause your program to hang indefinitely]
+- [Nearly all production code should use this parameter in nearly all requests. Failure to do so can cause your program to hang indefinitely](https://docs.python-requests.org/en/latest/user/quickstart/#timeouts)
